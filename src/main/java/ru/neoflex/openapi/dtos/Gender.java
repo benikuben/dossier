@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Gender
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-26T13:22:50.723249200+03:00[Europe/Moscow]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-29T12:26:31.209758600+03:00[Europe/Moscow]")
 public enum Gender {
   
   MALE("MALE"),

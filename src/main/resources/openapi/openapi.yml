@@ -9,7 +9,7 @@ paths:
   {}
 components:
   schemas:
-    LoanOfferDTO:
+    LoanOffer:
       description: Loan offer
       type: object
       required:
@@ -63,7 +63,7 @@ components:
           type: boolean
           description: Is salary client
           example: true
-    CreditDTO:
+    Credit:
       description: Credit
       type: object
       properties:
@@ -141,7 +141,7 @@ components:
           format: double
           description: Remaining payment
           example: 10000
-    EmploymentDTO:
+    Employment:
       description: User's employment data
       type: object
       required:
@@ -216,7 +216,7 @@ components:
           format: int64
           example: 1
           description: Id of application
-    ClientDTO:
+    Client:
       description: Client
       type: object
       properties:
@@ -260,19 +260,19 @@ components:
           $ref: '#/components/schemas/Passport'
           description: Passport
         employment:
-          $ref: '#/components/schemas/EmploymentDTO'
+          $ref: '#/components/schemas/Employment'
         account:
           type: string
           description: Account
           example: 01234567890123456789
-    ApplicationDTO:
+    Application:
       description: Application
       type: object
       properties:
         clientId:
-          $ref: '#/components/schemas/ClientDTO'
+          $ref: '#/components/schemas/Client'
         creditId:
-          $ref: '#/components/schemas/CreditDTO'
+          $ref: '#/components/schemas/Credit'
         creationDate:
           type: string
           format: date-time
@@ -281,7 +281,7 @@ components:
           description: Time and date of the status change
           example: 2017-07-21T17:32:28Z
         appliedOffer:
-          $ref: '#/components/schemas/LoanOfferDTO'
+          $ref: '#/components/schemas/LoanOffer'
         signDate:
           type: string
           format: date-time

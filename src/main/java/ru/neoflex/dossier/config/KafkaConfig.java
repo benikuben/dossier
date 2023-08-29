@@ -25,16 +25,21 @@ public class KafkaConfig {
 
     @Value("${spring.kafka.properties.bootstrap.servers}")
     private String bootstrapServerUrl;
+    @Value("${spring.kafka.consumer.group-id}")
+    private String groupId;
+    @Value("${spring.kafka.listener.concurrency}")
+    private String concurrency;
+    @Value("${spring.kafka.listener.poll-timeout}")
+    private String pollTimeout;
 
     private Map<String, Object> consumerConfig() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServerUrl);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "dossier");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, IntegerDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(ErrorHandlingDeserializer.KEY_DESERIALIZER_CLASS, ErrorHandlingDeserializer.class);
         props.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, ErrorHandlingDeserializer.class);
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
         props.put(JsonDeserializer.TYPE_MAPPINGS, "EmailMessage:ru.neoflex.openapi.dtos.EmailMessage");
         return props;
@@ -50,8 +55,8 @@ public class KafkaConfig {
         ConcurrentKafkaListenerContainerFactory<Integer, EmailMessage> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
-        factory.setConcurrency(3);
-        factory.getContainerProperties().setPollTimeout(3000);
+        factory.setConcurrency(Integer.parseInt(concurrency));
+        factory.getContainerProperties().setPollTimeout(Long.parseLong(pollTimeout));
         return factory;
     }
 }
