@@ -12,7 +12,7 @@ public class EmailServiceImpl implements EmailService {
         return new StringBuilder()
                 .append("Hello, your loan application №")
                 .append(applicationId)
-                .append(" approved!\nNow you should finish registration by the following link: ").toString();
+                .append(" approved!\nNow you should finish registration by the following link: http://localhost:8080/swagger-ui/index.html#/application/finishRegistration").toString();
     }
 
 
@@ -21,7 +21,7 @@ public class EmailServiceImpl implements EmailService {
         return new StringBuilder()
                 .append("Hello, your loan application №")
                 .append(applicationId)
-                .append(" passed all checks!\nNow you should send creating documents request by the following link: ").toString();
+                .append(" passed all checks!\nNow you should send creating documents request by the following link: http://localhost:8080/swagger-ui/index.html#/document/sendDocuments").toString();
     }
 
     @Override
@@ -29,7 +29,7 @@ public class EmailServiceImpl implements EmailService {
         return new StringBuilder()
                 .append("Hello, here is your loan documents for application №")
                 .append(applicationId)
-                .append(".\nNow you should send signing documents request by the following link: ").toString();
+                .append(".\nNow you should send signing documents request by the following link: http://localhost:8080/swagger-ui/index.html#/document/signDocuments").toString();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class EmailServiceImpl implements EmailService {
                 .append(sesCode)
                 .append(" for your application №")
                 .append(applicationId)
-                .append(".\nNow you should send this code to: ").toString();
+                .append(".\nNow you should send this code to: http://localhost:8080/swagger-ui/index.html#/document/verifyCode").toString();
     }
 
     @Override
