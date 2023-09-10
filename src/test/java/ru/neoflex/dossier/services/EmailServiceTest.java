@@ -13,28 +13,28 @@ class EmailServiceTest {
 
     @Test
     void createFinishRegistrationMsg() {
-        String expected = "Hello, your loan application №1 approved!\nNow you should finish registration by the following link: ";
+        String expected = "Hello, your loan application №1 approved!\nNow you should finish registration by the following link: http://localhost:8080/swagger-ui/index.html#/application/finishRegistration";
         String actual = emailService.createFinishRegistrationMsg(1L);
         assertEquals(actual, expected);
     }
 
     @Test
     void createCreateDocumentsMsg() {
-        String expected = "Hello, your loan application №1 passed all checks!\nNow you should send creating documents request by the following link: ";
+        String expected = "Hello, your loan application №1 passed all checks!\nNow you should send creating documents request by the following link: http://localhost:8080/swagger-ui/index.html#/document/sendDocuments";
         String actual = emailService.createCreateDocumentsMsg(1L);
         assertEquals(actual, expected);
     }
 
     @Test
     void createSendDocumentsMsg() {
-        String expected = "Hello, here is your loan documents for application №1.\nNow you should send signing documents request by the following link: ";
+        String expected = "Hello, here is your loan documents for application №1.\nNow you should send signing documents request by the following link: http://localhost:8080/swagger-ui/index.html#/document/signDocuments";
         String actual = emailService.createSendDocumentsMsg(1L);
         assertEquals(actual, expected);
     }
 
     @Test
     void createSendSesMsg() {
-        String expected = "Hello, here is your Simple Electric code 1111 for your application №1.\nNow you should send this code to: ";
+        String expected = "Hello, here is your Simple Electric code 1111 for your application №1.\nNow you should send this code to: http://localhost:8080/swagger-ui/index.html#/document/verifyCode";
         String actual = emailService.createSendSesMsg(1L, String.valueOf(1111));
         assertEquals(actual, expected);
     }
