@@ -22,7 +22,7 @@ import jakarta.annotation.Generated;
  */
 
 @Schema(name = "EmailMessage", description = "Email message")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-29T12:26:31.209758600+03:00[Europe/Moscow]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-03T20:08:41.165888500+03:00[Europe/Moscow]")
 public class EmailMessage implements Serializable {
 
   private static final long serialVersionUID = 1L;

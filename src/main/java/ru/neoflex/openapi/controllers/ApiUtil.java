@@ -1,4 +1,4 @@
-package org.openapitools.api;
+package ru.neoflex.openapi.controllers;
 
 import org.springframework.web.context.request.NativeWebRequest;
 
